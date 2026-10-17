@@ -1,0 +1,11 @@
+node_modules/
+dist/
+contracts/out/
+contracts/cache/
+contracts/lib/
+.toolchain/
+*.zip
+release*.json
+.env
+.env.*
+*.local
