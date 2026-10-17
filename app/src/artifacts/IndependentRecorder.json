@@ -1,0 +1,70 @@
+{
+  "name": "IndependentRecorder",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Recorded",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "myRecord",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "record",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "records",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b5061015d8061001c5f395ff3fe608060405234801561000f575f5ffd5b506004361061003f575f3560e01c80632c16cd8a14610043578063469e906714610058578063ef5dc56a14610089575b5f5ffd5b6100566100513660046100e3565b61009d565b005b6100776100663660046100fa565b5f6020819052908152604090205481565b60405190815260200160405180910390f35b335f90815260208190526040902054610077565b335f818152602081815260409182902084905590518381527f41b6cb040efd36b804b3afdd1d86a9ac9ba947b3ed595129c63453e98b431668910160405180910390a250565b5f602082840312156100f3575f5ffd5b5035919050565b5f6020828403121561010a575f5ffd5b81356001600160a01b0381168114610120575f5ffd5b939250505056fea264697066735822122026104952a88f85fa4bccb46433f947e26d0050d0829a0d0920dbd7632a62640764736f6c634300081c0033"
+}

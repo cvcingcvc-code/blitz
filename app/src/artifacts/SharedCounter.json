@@ -1,0 +1,58 @@
+{
+  "name": "SharedCounter",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Incremented",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "count",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "increment",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "n",
+          "type": "uint256"
+        }
+      ],
+      "name": "incrementBy",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b506101e28061001c5f395ff3fe608060405234801561000f575f5ffd5b506004361061003f575f3560e01c806303df179c1461004357806306661abd14610058578063d09de08a14610072575b5f5ffd5b610056610051366004610170565b61007a565b005b6100605f5481565b60405190815260200160405180910390f35b610056610121565b6127108111156100be5760405162461bcd60e51b815260206004820152600b60248201526a6e20746f6f206c6172676560a81b604482015260640160405180910390fd5b5f5b818110156100e65760015f5f8282546100d99190610187565b90915550506001016100c0565b505f5460405190815233907f38ac789ed44572701765277c4d0970f2db1c1a571ed39e84358095ae4eaa54209060200160405180910390a250565b60015f5f8282546101329190610187565b90915550505f5460405190815233907f38ac789ed44572701765277c4d0970f2db1c1a571ed39e84358095ae4eaa54209060200160405180910390a2565b5f60208284031215610180575f5ffd5b5035919050565b808201808211156101a657634e487b7160e01b5f52601160045260245ffd5b9291505056fea2646970667358221220288d9a6faea75db62de839535d8bd37ddf0d83abd7f74f0d2d0b735cf0a1b34464736f6c634300081c0033"
+}
