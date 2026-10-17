@@ -47,17 +47,27 @@ function stripComments(src: string): string {
 function extractStateVars(stripped: string): StateVarInfo[] {
   const vars: StateVarInfo[] = [];
   const lines = stripped.split("\n");
-  // 匹配合约级状态变量声明： type [visibility] name [= ...];
-  const re =
-    /^\s*(uint\d*|int\d*|address|bool|bytes\d*|string|mapping\([^)]*\)\s*=>\s*[^ ]+|\w+\[\])\s*(public|private|internal|external)?\s*(\w+)\s*(=|;)/;
+  // 匹配合约级状态变量声明（mapping 单独一条规则：mapping(K => V) [vis] name ...）
+  const plainRe =
+    /^\s*(uint\d*|int\d*|address|bool|bytes\d*|string|\w+\[\])\s*(public|private|internal|external)?\s*(\w+)\s*(=|;)/;
+  const mappingRe =
+    /^\s*mapping\s*\(\s*[\w.]+\s*=>\s*[\w.]+\s*\)\s*(public|private|internal|external)?\s*(\w+)\s*(=|;)/;
   for (let i = 0; i < lines.length; i++) {
-    const m = lines[i].match(re);
+    const line = lines[i];
+    const mm = line.match(mappingRe);
+    if (mm) {
+      vars.push({
+        name: mm[2],
+        type: "mapping",
+        line: i + 1,
+        isPublic: mm[1] === "public",
+      });
+      continue;
+    }
+    const m = line.match(plainRe);
     if (!m) continue;
     const typeStr = m[1];
-    let type: StateVarInfo["type"] = "unknown";
-    if (typeStr.startsWith("mapping")) type = "mapping";
-    else if (typeStr.endsWith("[]")) type = "array";
-    else type = "value";
+    const type: StateVarInfo["type"] = typeStr.endsWith("[]") ? "array" : "value";
     vars.push({
       name: m[3],
       type,
